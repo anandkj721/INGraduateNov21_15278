@@ -1,0 +1,27 @@
+const EMPLOYEE=[
+    {
+        id:1,
+        firstName:"anand",
+        lastName:"kumar",
+        email:"akj721@gmail.com"
+    },
+    {
+        id:2,
+        firstName:"harshal",
+        lastName:"patil",
+        email:"harshal123@gmail.com"
+    },
+    {
+        id:3,
+        firstName:"divya",
+        lastName:"shree",
+        email:"divya789@gmail.com"
+    },
+    {
+        id:4,
+        firstName:"abc",
+        lastName:"xyz",
+        email:"abc111@gmail.com"
+    }
+];
+module.exports.EMPLOYEE=EMPLOYEE;

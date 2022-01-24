@@ -1,0 +1,80 @@
+
+ <div class="container">
+    <h2 class=" text-center ">Add New User</h2>
+    <div class="row ">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email"  class="form-control" placeholder="abc@gmail.com">
+            </div> 
+
+            
+            <!-- <div class="form-group">
+                <label for="city">city</label>
+                <select name="city" id="city"  class="form-control">
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Thane">Thane</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Nashik">Nashik</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hobbies">hobbies</label>
+               <div class="form-check">
+                   <input type="checkbox" class="form-check-input" id="musicCheck">
+                   <label for="music" class="form-check-lable" >Music</label>
+               </div>
+               <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="cricketCheck">
+                <label for="cricket" class="form-check-lable" >Cricket</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="ReadingCheck">
+                <label for="reading" class="form-check-lable" >Reading</label>
+            </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+               <div class="form-check">
+                   <input type="radio" class="form-check-input" name="gender" id="maleRadio">
+                   <label for="maleRadio" class="form-check-lable" >Male</label>
+               </div>
+               <div class="form-check">
+                <input type="radio" class="form-check-input" name="gender" id="femaleRadio">
+                <label for="femaleRadio" class="form-check-lable" >Female</label>
+            </div>
+
+            </div> -->
+           
+            <div class="row">
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" id="add_User" (click)="addUser()" formmethod="POST" formaction="add_User">Add</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div>
+    <ul *ngFor="let emp1 of emp">
+        <li>
+            id:{{emp1.id}}--first name:{{emp1.firstName}}--last Name:{{emp1.lastName}}--email:{{emp1.email}}
+        </li>
+    </ul>
+</div>
+
+
+
+

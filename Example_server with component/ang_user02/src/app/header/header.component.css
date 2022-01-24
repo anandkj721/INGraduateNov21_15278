@@ -1,0 +1,12 @@
+.header{
+    text-align: center;
+    border: 5px solid black;
+}
+.nav-link{
+    color: black;
+}
+.nav-link:hover,
+.nav-link.active{
+    color: white;
+    background:DarkSeaGreen;
+}

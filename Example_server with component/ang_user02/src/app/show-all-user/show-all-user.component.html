@@ -1,0 +1,33 @@
+<div class="main">
+  <div class="row">
+    <div class="col">
+      <h1>Employee Details</h1>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-md-12 " id="mainTable">
+        <table class="table table-hover table-responsive-md">
+          <thead class="thead dark">
+
+            <!-- <tr><td><span id="table_header"><h1>Employee Details</h1></span></td></tr> -->
+                <tr>
+                  <td>id</td>
+                  <td>First Name</td>
+                  <td>Last Name</td>
+                  <td>Email</td>
+                </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.email}}</td>
+             </tr> 
+        </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+
