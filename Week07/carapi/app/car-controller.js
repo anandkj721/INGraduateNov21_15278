@@ -1,10 +1,10 @@
 const db=require('../db/models');//index.js=>db
 
-const Account=db.Account;
+const Car=db.Car;
 
-// 1. select * from Account => findAll
+// 1. select * from Car => findAll
 exports.findAll=(req,resp)=>{
-    Account.findAll()
+    Car.findAll()
        .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -13,10 +13,10 @@ exports.findAll=(req,resp)=>{
       });
 };
 
-// 2. seelct * from Account where id=?=>findByPK
+// 2. seelct * from Car where id=?=>findByPK
 exports.findByPk=(req,resp)=>{
     const id=parseInt(req.params.id);
-    Account.findByPk(id)
+    Car.findByPk(id)
         .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -25,20 +25,21 @@ exports.findByPk=(req,resp)=>{
         });
 };
 
-// //create a new Account
- exports.createAccount=(req,resp)=>{
-     if(!req.body.AccountName){
+// //create a new Car
+ exports.createCar=(req,resp)=>{
+     if(!req.body.CarName){
          resp.status(400)
-         .send({message:"Account is"});
+         .send({message:"Car name must be provided"});
     }
-      const newAccount={
-        accno:req.body.accno,
-        accname:req.body.accname,
-        balance:req.body.balance,
+      const newCar={
+        carName:req.body.carName,
+        brandName:req.body.brandName,
           craetedAt:new Date(),
           updatedAt:new Date()
+
+        
      };
-     Account.create(newAccount)
+     Car.create(newCar)
      .then(data=>resp.send(data))
      .catch(err=>{
          resp.status(500)
@@ -47,20 +48,20 @@ exports.findByPk=(req,resp)=>{
  };
 
 //update by id
-exports.updateAccount=(req,resp)=>{
+exports.updateCar=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.update(req.body,{where:{id:c_id}})
+    Car.update(req.body,{where:{id:c_id}})
     .then(num=>{
         if(num>1){
-            resp.send({message:`Account with id= ${id} updated successfully`});
+            resp.send({message:`Car with id= ${id} updated successfully`});
         }
         else{
-            resp.send({message:`can not Account with id ${id} updated successfully`});
+            resp.send({message:`cannot Car with id ${id} updated successfully`});
         }
     })
     .catch(err=>{
         resp.status(500)
-        .send({message:err.message || "some error retriving people data"})
+        .send({message:err.message || "some error retriving Car data"})
     })
 
    }  
@@ -68,18 +69,18 @@ exports.updateAccount=(req,resp)=>{
 //delete
 exports.delete=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.destroy({where:{id:c_id}})   
+    Car.destroy({where:{id:c_id}})   
     .then(num=>{
         if(num==1){
-            resp.send({message:`Account with id=${id} deleted sucessfully!`});
+            resp.send({message:`Car with id=${id} deleted sucessfully!`});
         }
         else{
-            resp.send({message:`Account can not delet with id=${id} deleted sucessfully may be Account not found!`});
+            resp.send({message:`Car can not delet with id=${id} deleted sucessfully may be Car not found!`});
         }
     })
     .catch((err=>{
         resp.status(500).send({
-            message:err.message || "could not delete person with id ="+id
+            message:err.message || "could not delete Car with id ="+id
         })
     }))
 }

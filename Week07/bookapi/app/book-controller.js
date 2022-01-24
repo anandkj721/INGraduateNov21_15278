@@ -1,10 +1,10 @@
 const db=require('../db/models');//index.js=>db
 
-const Account=db.Account;
+const Book=db.Book;
 
-// 1. select * from Account => findAll
+// 1. select * from Book => findAll
 exports.findAll=(req,resp)=>{
-    Account.findAll()
+    Book.findAll()
        .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -13,10 +13,10 @@ exports.findAll=(req,resp)=>{
       });
 };
 
-// 2. seelct * from Account where id=?=>findByPK
+// 2. seelct * from Book where id=?=>findByPK
 exports.findByPk=(req,resp)=>{
     const id=parseInt(req.params.id);
-    Account.findByPk(id)
+    Book.findByPk(id)
         .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -25,20 +25,20 @@ exports.findByPk=(req,resp)=>{
         });
 };
 
-// //create a new Account
- exports.createAccount=(req,resp)=>{
-     if(!req.body.AccountName){
+// //create a new Book
+ exports.createBook=(req,resp)=>{
+     if(!req.body.bookName){
          resp.status(400)
-         .send({message:"Account is"});
+         .send({message:"book name must be provided"});
     }
-      const newAccount={
-        accno:req.body.accno,
-        accname:req.body.accname,
-        balance:req.body.balance,
+      const newBook={
+        bookName:req.body.bookName,
+        BookName:req.body.BookName,
+        publicationdate:req.body.publicationdate,
           craetedAt:new Date(),
           updatedAt:new Date()
      };
-     Account.create(newAccount)
+     Book.create(newBook)
      .then(data=>resp.send(data))
      .catch(err=>{
          resp.status(500)
@@ -47,20 +47,20 @@ exports.findByPk=(req,resp)=>{
  };
 
 //update by id
-exports.updateAccount=(req,resp)=>{
+exports.updateBook=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.update(req.body,{where:{id:c_id}})
+    Book.update(req.body,{where:{id:c_id}})
     .then(num=>{
         if(num>1){
-            resp.send({message:`Account with id= ${id} updated successfully`});
+            resp.send({message:`book with id= ${id} updated successfully`});
         }
         else{
-            resp.send({message:`can not Account with id ${id} updated successfully`});
+            resp.send({message:`cannot Book with id ${id} updated successfully`});
         }
     })
     .catch(err=>{
         resp.status(500)
-        .send({message:err.message || "some error retriving people data"})
+        .send({message:err.message || "some error retriving Book data"})
     })
 
    }  
@@ -68,18 +68,18 @@ exports.updateAccount=(req,resp)=>{
 //delete
 exports.delete=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.destroy({where:{id:c_id}})   
+    Book.destroy({where:{id:c_id}})   
     .then(num=>{
         if(num==1){
-            resp.send({message:`Account with id=${id} deleted sucessfully!`});
+            resp.send({message:`Book with id=${id} deleted sucessfully!`});
         }
         else{
-            resp.send({message:`Account can not delet with id=${id} deleted sucessfully may be Account not found!`});
+            resp.send({message:`Book can not delet with id=${id} deleted sucessfully may be Book not found!`});
         }
     })
     .catch((err=>{
         resp.status(500).send({
-            message:err.message || "could not delete person with id ="+id
+            message:err.message || "could not delete book with id ="+id
         })
     }))
 }

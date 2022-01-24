@@ -1,0 +1,12 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "root",
+    "database": "dev_apibookdbUser",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "protocol": "postgres",
+    "port": 5432
+
+  }
+}

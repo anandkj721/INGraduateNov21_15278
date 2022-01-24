@@ -1,10 +1,10 @@
 const db=require('../db/models');//index.js=>db
 
-const Account=db.Account;
+const Author=db.Author;
 
-// 1. select * from Account => findAll
+// 1. select * from Author => findAll
 exports.findAll=(req,resp)=>{
-    Account.findAll()
+    Author.findAll()
        .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -13,10 +13,10 @@ exports.findAll=(req,resp)=>{
       });
 };
 
-// 2. seelct * from Account where id=?=>findByPK
+// 2. seelct * from Author where id=?=>findByPK
 exports.findByPk=(req,resp)=>{
     const id=parseInt(req.params.id);
-    Account.findByPk(id)
+    Author.findByPk(id)
         .then(data=>resp.json(data))
         .catch(err=>{
             resp.status(500)
@@ -25,20 +25,21 @@ exports.findByPk=(req,resp)=>{
         });
 };
 
-// //create a new Account
- exports.createAccount=(req,resp)=>{
-     if(!req.body.AccountName){
+// //create a new Author
+ exports.createAuthor=(req,resp)=>{
+     if(!req.body.AuthorName){
          resp.status(400)
-         .send({message:"Account is"});
+         .send({message:"Author name must be provided"});
     }
-      const newAccount={
-        accno:req.body.accno,
-        accname:req.body.accname,
-        balance:req.body.balance,
+      const newAuthor={
+    
+        authorid:req.body.authorid,
+        authorname:req.body.authorname,
+        bookname:req.body.bookname,
           craetedAt:new Date(),
           updatedAt:new Date()
      };
-     Account.create(newAccount)
+     Author.create(newAuthor)
      .then(data=>resp.send(data))
      .catch(err=>{
          resp.status(500)
@@ -47,15 +48,15 @@ exports.findByPk=(req,resp)=>{
  };
 
 //update by id
-exports.updateAccount=(req,resp)=>{
+exports.updateAuthor=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.update(req.body,{where:{id:c_id}})
+    Author.update(req.body,{where:{id:c_id}})
     .then(num=>{
         if(num>1){
-            resp.send({message:`Account with id= ${id} updated successfully`});
+            resp.send({message:`people with id= ${id} updated successfully`});
         }
         else{
-            resp.send({message:`can not Account with id ${id} updated successfully`});
+            resp.send({message:`cannot Author with id ${id} updated successfully`});
         }
     })
     .catch(err=>{
@@ -68,13 +69,13 @@ exports.updateAccount=(req,resp)=>{
 //delete
 exports.delete=(req,resp)=>{
     const c_id=parseInt(req.params.id);
-    Account.destroy({where:{id:c_id}})   
+    Author.destroy({where:{id:c_id}})   
     .then(num=>{
         if(num==1){
-            resp.send({message:`Account with id=${id} deleted sucessfully!`});
+            resp.send({message:`Author with id=${id} deleted sucessfully!`});
         }
         else{
-            resp.send({message:`Account can not delet with id=${id} deleted sucessfully may be Account not found!`});
+            resp.send({message:`Author can not delet with id=${id} deleted sucessfully may be Author not found!`});
         }
     })
     .catch((err=>{

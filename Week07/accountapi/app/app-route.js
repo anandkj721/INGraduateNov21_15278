@@ -4,9 +4,9 @@ module.exports=(app)=>{
     const UserController=require('./account-controller');
     ROUTER.get('/accounts',UserController.findAll);
     ROUTER.get('/accounts/:id',UserController.findByPk);
-    ROUTER.post('/accounts/add',(req,resp)=>{    });
-    ROUTER.put('/accounts/update/:id',(req,resp)=>{    });
-    ROUTER.delete('/accounts/delete/:id',(req,resp)=>{    });
+    ROUTER.post('/accounts/add',UserController.createAccount);
+    ROUTER.put('/accounts/update/:id',UserController.updateAccount);
+    ROUTER.delete('/accounts/delete/:id',UserController.delete);
 
     app.use('/app',ROUTER);
 
