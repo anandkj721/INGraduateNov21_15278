@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col sm-12">
+        <!-- <p *ngIf="datasaved" ngClass="success">save Data Successfully</p> -->
+        <form action="" [formGroup]='addProductForm' (ngSubmit)='onFormSubmit()'>
+            <table class="table table-hover table-responsive-md">
+                <thead class="thead dark">                    
+                      <!-- <tr>
+                          <td>ProductId</td>
+                          <td><input type="number" formControlName="ProductId"></td>
+                      </tr> -->
+                      <tr>
+                        <td>Product Name</td>
+                        <td><input type="text" formControlName="productName"></td>
+                    </tr>
+                    <tr>
+                        <td>product Image</td>
+                        <td><input type="email" formControlName="productImage" placeholder="Enter Image Url"></td>
+                    </tr>
+
+                    <tr>
+                        <td>product Price</td>
+                        <td><input type="number" formControlName="productPrice" ></td>
+                    </tr>
+
+                    <tr>
+                        <td>product Description</td>
+                        <td><input type="text" formControlName="productDescription"></td>
+                    </tr>
+                    <td colspan="2">
+                        <button class="btn btn-primary"   type="submit" [disabled]="!addProductForm.valid">submit</button>
+                    </td>
+                 </thead>   
+              </table>
+        </form>
+    </div>
+</div>
