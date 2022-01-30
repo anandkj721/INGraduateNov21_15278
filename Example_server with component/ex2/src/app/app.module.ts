@@ -5,12 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule} from '@angular/common/http'
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavComponent } from './components/nav/nav.component';
 import { ProductpageComponent } from './components/productpage/productpage.component';
 import { ProductpageService } from './services/productpage.service';
+import { AddProductComponent } from './components/product/add-product/add-product.component';
+import { AddcartComponent } from './components/cart/addcart/addcart.component';
+
+
 
 @NgModule({
   declarations: [
@@ -18,13 +23,16 @@ import { ProductpageService } from './services/productpage.service';
     HeaderComponent,
     FooterComponent,
     NavComponent,
-    ProductpageComponent
+    ProductpageComponent,
+    AddProductComponent,
+    AddcartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ProductpageService],
   bootstrap: [AppComponent]

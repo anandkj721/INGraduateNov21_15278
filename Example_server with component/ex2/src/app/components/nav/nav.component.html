@@ -1,23 +1,24 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">
-      <app-header></app-header>
-      Electronic Shop
-    </h5>
    
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#" style="text-decoration: none;"> Shop</a>
+      <div class="row">
+        <span style="padding-left: 50%;"></span>      
+      </div>
+      <nav class="my-2 my-md-0 mr-md-3 ">      
         <a class="p-2 text-dark" href="#" style="text-decoration: none;">Home</a>
-        <a class="p-2 text-dark" href="#" style="text-decoration: none;">about</a>
-        <a class="p-2 text-dark" href="#" style="text-decoration: none;">contactUs</a>
+        <span style="padding-left: 10%;"></span> 
+        <a class="p-2 text-dark" href="#" style="text-decoration: none;">About</a>
+        <span style="padding-left: 10%;"></span> 
+        <a class="p-2 text-dark" href="#" style="text-decoration: none;">ContactUs</a>  
+        <span style="padding-left: 10%;"></span>      
+        <a class="p-2 text-dark" href="addProduct"  [routerLink]="['/addProduct']" style="text-decoration: none;">Product</a>
+        <span style="padding-left: 10%;"></span>      
       </nav>
-     
-        <a class="btn btn-primary" [routerLink]="['/register']" style="text-align: right;">Sign up</a>
-        <a class="btn btn-outline-secondary" [routerLink]="['/login']">Login</a>
+      <span style="padding-left: 50%;"></span> 
       
   </div>
-  <div class="conatiner">
+  
+  <!-- <div class="conatiner">
       <app-productpage></app-productpage>
 </div>
 
-
- 
+  -->

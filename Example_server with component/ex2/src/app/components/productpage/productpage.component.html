@@ -1,11 +1,44 @@
 
-    <div class="row ">
+
+
+<!-- <div>
+    <div class="row" >
         <div class="col-md-4" *ngFor="let p of productPage">
-            <div class="card mb-4 shadow-sm">
-                <img class="bd-placeholder-img card-img-top p-2" width="100% "  src="{{p.productImage}} "/>               
-                <p>{{p.productName}}</p>
-                <p>{{p.productPrice | currency:"INR"}}</p>
-                <p>{{p.productDescription}}</p>
+            <div class="card mb-4 shadow-md">
+                <img class="bd-placeholder-img card-img-top p-2"  src="{{p.productImage}} "/>               
+                <p style="color:blue ;">{{p.productName}}</p>
+                <p style="color: #B12704; ">{{p.productPrice | currency:"INR"}} </p>
+                <p>{{p.productDescription | slice: 0:100}}</p>
+                <button type="button" class="btn btn-primary" [routerLink]="['/cart', {id:p.id}]" style="width: 109px; height: 44px;">Add to Cart</button>
+                
             </div>
         </div>
-    
+        
+    </div>
+</div> -->
+
+
+
+<div class="container" >
+    <div class="row">
+        <ng-container *ngFor="let item of productPage ">
+            <div class="card col-md-3">
+                <img src="{{item.productImage}}" alt="">
+                <h5 style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch; color: blue;" >{{item.productName}}</h5>
+                <p style="white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 100ch;">{{item.productDescription | slice: 0:100}}</p>
+                <p style="color: #B12704; "> {{item.productPrice | currency:"INR"}}</p>
+                <!-- <select name="pQuantity" [(ngModel)]="pQuantity" id="" class="form-control" >
+                    <option selected value="select" disabled class="text-primary">Select</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select> -->
+                <input  type="number" [(ngModel)]="pQuantity" id="" placeholder="select product item">
+                <button class="btn btn-primary" (click)=addtocart(item,pQuantity) >Add to cart</button>
+            </div>
+        </ng-container>
+
+    </div>
+</div>
