@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   productPage:IProductpage[]=[];
 
   ngOnInit(): void {
-    this.cartService.getProducts()
+    this.cartService.getProductList()
     .subscribe(res=>{
       this.totalItem = res.length;
     })

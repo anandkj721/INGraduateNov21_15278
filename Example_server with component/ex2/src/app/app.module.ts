@@ -14,6 +14,7 @@ import { ProductpageComponent } from './components/productpage/productpage.compo
 import { ProductpageService } from './services/productpage.service';
 import { AddProductComponent } from './components/product/add-product/add-product.component';
 import { AddcartComponent } from './components/cart/addcart/addcart.component';
+import { FillterPipe } from './shared/fillter.pipe';
 
 
 
@@ -25,7 +26,8 @@ import { AddcartComponent } from './components/cart/addcart/addcart.component';
     NavComponent,
     ProductpageComponent,
     AddProductComponent,
-    AddcartComponent
+    AddcartComponent,
+    FillterPipe
   ],
   imports: [
     BrowserModule,

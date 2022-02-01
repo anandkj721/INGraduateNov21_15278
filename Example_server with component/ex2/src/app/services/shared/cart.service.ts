@@ -23,10 +23,10 @@ export class CartService {
 
   public cartItemList : any =[]
   public productList = new BehaviorSubject<any>([]);
-  //public search = new BehaviorSubject<string>("");
+  
 
  
-  getProducts(){
+  getProductList(){
     return this.productList.asObservable();
   }
 
@@ -35,30 +35,24 @@ export class CartService {
     this.productList.next(product);
   }
   addtoCart(product:any,pQuantity:number){
-    // this.cartItemList.push(product);
-    // this.productList.next(this.cartItemList);
-    // this.getTotalPrice();
-    // console.log(this.cartItemList)
-
     const _product={product:product,quantity:pQuantity};
     this.cartItemList.push(_product);
-    
-    this.productList.next(this.cartItemList);
+  this.productList.next(this.cartItemList);
     this.getTotalPrice();
     //console.log(this.cartItemList);
-
-
-
   }
   getTotalPrice() : number{
     let grandTotal=0;
     this.cartItemList.map((a:any)=>{
       const q:number=parseInt(a.quantity);
-      console.log(q);
+      
       grandTotal+=a.product.total*q;
-      console.log("total grand"+grandTotal);
+      //grandTotal+=a.total;
+      
+      
     });
     return grandTotal;
+   
   }
   removeCartItem(product: any){
     this.cartItemList.map((a:any, index:any)=>{
@@ -72,11 +66,5 @@ export class CartService {
     this.cartItemList = []
     this.productList.next(this.cartItemList);
   }
-
-//added new 
- 
-
-  
-
 
 }

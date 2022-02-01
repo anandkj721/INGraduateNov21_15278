@@ -14,25 +14,26 @@ export class AddcartComponent implements OnInit {
   constructor(private productpageService:ProductpageService,private activatedRoute: ActivatedRoute,
     private cartService :CartService) { }
   
-  public products : any = [];
-  public grandTotal : any;
+  public products : any []= [];
+  public grandTotal : number=0;
 
-  public addCart:any=[];
+
   //added
 
   ngOnInit()
    {
-    this.cartService.getProducts()
-    .subscribe(res=>{
-      this.products = res;
+    this.cartService.getProductList()
+    .subscribe(data=>{
+      this.products = data;
       console.log(this.products);
+      this.products.forEach(element => {
+        console.log(element.products)
+        
+      });
       this.grandTotal = this.cartService.getTotalPrice();
-    })
-    this.grandTotal=this.cartService.getTotalPrice();
 
-    //added value from addCartData
-    //this.addCart=this.activatedRoute.snapshot.queryParams['addCartData']
-    //console.log(this.addCart);
+      //console.log("addcart component:"+this.grandTotal)
+    })
    }
 
    removeItem(item: any){

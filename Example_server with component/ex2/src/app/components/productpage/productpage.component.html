@@ -19,7 +19,7 @@
 
 
 
-<div class="container" >
+<div class="container " style="margin-bottom: 25px;" >
     <div class="row">
         <ng-container *ngFor="let item of productPage ">
             <div class="card col-md-3">
@@ -35,10 +35,17 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select> -->
-                <input  type="number" [(ngModel)]="pQuantity" id="" placeholder="select product item">
+                
+                <input  type="number" [(ngModel)]="pQuantity" id="" min="1" placeholder="select product item">
                 <button class="btn btn-primary" (click)=addtocart(item,pQuantity) >Add to cart</button>
             </div>
         </ng-container>
 
     </div>
 </div>
+
+<!-- <div>
+    <button type="button" class="btn" (click)="inc()"><i class="fa fa-plus"></i></button>
+    <p>{{quant}}</p>
+    <button type="button" class="btn" (click)="dec()"><i class="fa fa-minus"></i></button>
+</div> -->

@@ -16,26 +16,47 @@ export class ProductpageService {
   constructor(private httpClient:HttpClient) { }
 
   getProductPage():Observable<IProductpage []>{
-    return this.httpClient.get<IProductpage []>(this.base_url+"/productpages");
-    
+    return this.httpClient.get<IProductpage []>(this.base_url+"/productpages");  
   }
 
   getProduct(){
-    return this.httpClient.get<IProductpage []>(this.base_url+"/productpages")
+    return this.httpClient.get<any>(this.base_url+"/productpages")
     .pipe(map((res:any)=>{
       return res;
     }))
   }
 
-  productAdd(IProduct:IProductpage):Observable<IProductpage>{
+  productAdd(product:IProductpage):Observable<IProductpage>{
     let httpheader=new HttpHeaders()
-    .set('Content-type','Appplication/json');
+    .set('Content-type','application/json');
     let options={
       headers:httpheader
     };
-    return this.httpClient.post<IProductpage>(this.base_url+"/productpages/add",IProduct,options);
-
+    return this.httpClient.post<IProductpage>(this.base_url+"/productpages/add",product,options);
   }
 
+  getProductIdForm(employeeid:number):Observable<IProductpage >{
+    return this.httpClient.get<IProductpage >(this.base_url+"/productpages/"+employeeid);
+  }
+
+  productUpdate(product:IProductpage):Observable<number>{
+    
+    let httpheader=new HttpHeaders()
+    .set('Content-type','application/json');
+    let options={
+      headers:httpheader
+    };
+    return this.httpClient.put<number>(this.base_url+"/productpages/update/"+product.id,product,options);
+  }
+
+
+  productDeleteById(productId:number):Observable<number>{
+    let httpheader=new HttpHeaders()
+    .set('Content-type','application/json');
+    let options={
+      headers:httpheader
+    };
+    return this.httpClient.delete<number>(this.base_url+"/productpages/delete/"+productId);
+  }
 
 }
