@@ -10,13 +10,14 @@ import { IProductpage } from 'src/IProductpage';
 })
 export class HeaderComponent implements OnInit {
   public totalItem : number = 0;
+  public searchTerm !: string;
   constructor(private cartService:CartService,private productpageService:ProductpageService ) { }
 
   //added
   productPage:IProductpage[]=[];
 
   ngOnInit(): void {
-    this.cartService.getProductList()
+    this.cartService.getProducts()
     .subscribe(res=>{
       this.totalItem = res.length;
     })
@@ -25,6 +26,11 @@ export class HeaderComponent implements OnInit {
   //added 
   getProductPage(){
     this.productpageService.getProductPage().subscribe(productPage=>this.productPage=productPage)
+  }
+  search(event:any){
+    this.searchTerm = (event.target as HTMLInputElement).value;
+    console.log(this.searchTerm);
+    this.cartService.search.next(this.searchTerm);
   }
 
 }

@@ -14,7 +14,10 @@ import {FillterPipe } from 'src/app/shared/fillter.pipe'
 })
 export class ProductpageComponent implements OnInit {
   public productList : any ;
-  //public filterCategory : any;
+  
+  public filterCategory : any
+  searchKey:string ="";
+  
   addCartData:any;
   pQuantity:any
   productPage:IProductpage[]=[];
@@ -32,33 +35,21 @@ export class ProductpageComponent implements OnInit {
         Object.assign(a,{quantity:1,total:a.price});
       });
     })
-    //
+
     this.getProductPage();
+
+    this.cartService.search.subscribe((val:any)=>{
+      this.searchKey = val;
+    })
   }
 
   addtocart(item: any,pQuantity:number){
-    
-    console.log("add cart ()......" +item,pQuantity);
     this.cartService.addtoCart(item,pQuantity);
-    
     console.log("addtocart()........... productpage "+item +" quantity :" +pQuantity)
-    //added
-    //this.productpageService.getProductPage().subscribe(productPage=>this.productPage=productPage)
-    //this.router.navigate(['/cart'], {queryParams: {productPage : this.adduserdata}});
-    //console.log(this.adduserdata);
-
   }
   
-
-  //
   getProductPage(){
     this.productpageService.getProductPage().subscribe(productPage=>this.productPage=productPage)
   }
 
-//added
-// quant:any=1;
-//  inc(){
-
-//  }
-//  dec(){}
  }

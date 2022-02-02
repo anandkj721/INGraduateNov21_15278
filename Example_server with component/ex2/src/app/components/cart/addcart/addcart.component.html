@@ -23,8 +23,9 @@
                         <td><img src='{{item.product.productImage}}' style="width:120px;" alt=""></td>
                         <td>{{item.product.productDescription}}</td>
                         <td  style="color: #B12704; ">{{item.product.productPrice |currency:'INR'}}</td>
-                        <td>{{item.product.quantity}}</td>
-                        <td style="color: #B12704;">{{item.product.productPrice*item.quantity |currency:'INR'}}</td>
+                        <td>  {{item.quantity}}</td>
+                        <td  style="color: #B12704;">{{item.product.productPrice*item.quantity |currency:'INR'}} </td>
+                        
                             <td>
                                 <button (click)="removeItem(item)" class="btn" style="background-color: orangered;"><i class="fas fa-trash-alt"></i></button>
                             </td>
@@ -33,8 +34,8 @@
                             <td colspan="4"></td>
                             <td><button (click)="emptycart()" class="btn" style="background-color: orange;">EmptyCart</button></td>
                             <td><button routerLink="/productPage" class="btn" style="background-color: orange;">ShopMore</button></td>
-                            <td><button  class="btn" style="background-color: orange;">Checkout</button></td>
-                            <td><strong>Grand Total :{{grandTotal}}</strong></td>
+                            <td><button routerLink="/checkout" class="btn" style="background-color: orange;">Checkout</button></td>
+                            <td style="color: #B12704;"><strong><span style="color: black;">Total</span> :{{grandTotal |currency:'INR'}}</strong></td>
                         </tr>
                     </tbody>
                 </table>
@@ -61,21 +62,3 @@
 
 
 
-<!-- <div class="row">
-    <div class="col sm-12">
-      <table border="5" class="table table-hover table-responsive-md" >
-          <tr class="thead dark">
-              <th>ID</th> <th>Product Name</th> <th>Image</th> <th>Price</th>
-          </tr>
-          <tr *ngFor= >
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-             
-             
-             
-           </tr> 
-      </table>
-    </div>
-</div> -->

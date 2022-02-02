@@ -15,6 +15,8 @@ import { ProductpageService } from './services/productpage.service';
 import { AddProductComponent } from './components/product/add-product/add-product.component';
 import { AddcartComponent } from './components/cart/addcart/addcart.component';
 import { FillterPipe } from './shared/fillter.pipe';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -27,7 +29,8 @@ import { FillterPipe } from './shared/fillter.pipe';
     ProductpageComponent,
     AddProductComponent,
     AddcartComponent,
-    FillterPipe
+    FillterPipe,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,9 @@ import { FillterPipe } from './shared/fillter.pipe';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule
+  ],
+  exports:[
+    [RouterModule]
   ],
   providers: [ProductpageService],
   bootstrap: [AppComponent]

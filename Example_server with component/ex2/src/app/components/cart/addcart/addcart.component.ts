@@ -15,25 +15,26 @@ export class AddcartComponent implements OnInit {
     private cartService :CartService) { }
   
   public products : any []= [];
-  public grandTotal : number=0;
-
-
-  //added
+  public grandTotal! : number;
 
   ngOnInit()
    {
-    this.cartService.getProductList()
-    .subscribe(data=>{
-      this.products = data;
-      console.log(this.products);
+    this.cartService.getProducts()
+    .subscribe(res=>{
+      this.products = res;    
+      const cartProduct={products:this.products,quantity:this.products}
+     
+      console.log("ngOnInit :"+JSON.stringify(cartProduct));
       this.products.forEach(element => {
-        console.log(element.products)
-        
+       console.log(element.products)
+     
+       
+       localStorage.setItem('cartObj',JSON.stringify(cartProduct));
       });
-      this.grandTotal = this.cartService.getTotalPrice();
-
-      //console.log("addcart component:"+this.grandTotal)
-    })
+      this.grandTotal = this.cartService.getTotalPrice(cartProduct.products,cartProduct.quantity);
+    
+    });
+   
    }
 
    removeItem(item: any){
