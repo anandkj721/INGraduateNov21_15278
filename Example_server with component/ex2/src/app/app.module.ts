@@ -17,6 +17,11 @@ import { AddcartComponent } from './components/cart/addcart/addcart.component';
 import { FillterPipe } from './shared/fillter.pipe';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { RouterModule } from '@angular/router';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { adminlogin } from './components/adminLogin/login.component';
+import { AdminComponent } from './components/admin/admin.component';
+
 
 
 
@@ -30,7 +35,13 @@ import { RouterModule } from '@angular/router';
     AddProductComponent,
     AddcartComponent,
     FillterPipe,
-    CheckoutComponent
+    CheckoutComponent,
+    RegisterComponent,
+    LoginComponent,
+    adminlogin,
+    AdminComponent
+    
+  
   ],
   imports: [
     BrowserModule,

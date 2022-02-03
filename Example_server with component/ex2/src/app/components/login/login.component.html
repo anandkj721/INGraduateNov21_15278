@@ -1,0 +1,37 @@
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+
+          <div class="col-md-4 offset-md-3">
+              <h3 style="text-align: center;">Login</h3>
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group" >
+                  <label>Username</label>
+                  <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['userName'].errors }" />
+                  <div *ngIf="submitted && f['userName'].errors" class="invalid-feedback">
+                      <div *ngIf="f['userName'].errors['required']">userName is required</div>
+
+                  </div>
+              </div>
+
+              <div class="form-group">
+                <label>Password</label>
+                 <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+                <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+                    <div *ngIf="f['password'].errors['required']">Password is required</div>
+                    <div *ngIf="f['password'].errors['minLength']">Password must be at least 6 characters</div>
+                </div>
+                <span></span>
+                <div class="form-group col-md-4">
+                  <button type="submit" [disabled]="loginForm.valid" class="btn btn-primary">Log in</button>
+              </div>
+            </div>
+
+              </form>
+              <a routerLink="/register" style="float:right ;color: dodgerblue;">New user?</a>
+
+          </div>
+      </div>
+
+      </div>
+</div>

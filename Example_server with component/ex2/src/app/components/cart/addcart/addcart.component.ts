@@ -1,7 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { ProductpageService } from 'src/app/services/productpage.service';
 import { IProductpage } from 'src/IProductpage'; 
-import { ICart } from 'server/app/Interface/ICart';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from 'src/app/services/shared/cart.service';
 @Component({
