@@ -1,23 +1,25 @@
 
 
 <header>
-    <div class="navbar navbar-dark  shadow-sm" style="background-color: darkslategrey">
+    <div class="navbar navbar-dark  shadow-sm" style="background-color: #2F4F4F">
         <div class="navbar-brand align-item-center d-flex">
             <!-- <i style="font-size: 40px;" class="fas fa-shipping-fast">&nbsp;
                 
             </i> -->
             <strong style="font-size: 30px;">Electronic Devices</strong>
-            <div class="form-group">
+            <div class="form-group ">
                 <input type="text" class="form-control" [(ngModel)]="searchTerm" (keyup)="search($event)"  placeholder="search products">
             </div>
-            <span class="fas fa-search search-icon" style="color: darkslategrey;"></span>
+            
+            <span class="fas fa-search search-icon " style="color: darkslategrey;"></span>
 
 
         </div>
-        <span style="padding-left: 10%;"></span>
+        
+        <a class="btn btn-primary" [routerLink]="['/adminLogin']" style="text-align: right;">Admin</a>
         <a class="btn btn-primary" [routerLink]="['/register']" style="text-align: right;">Sign up</a>
-     
-    <a class="btn btn-primary" [routerLink]="['/login']">Login</a>
+        <a class="btn btn-primary" [routerLink]="['/login']">Login</a>
+        <span></span>
         <button routerLink="cart"  class="btn btn-primary" style="background-color: darkslategrey">
             <i style="font-size: 30px;" class="fas fa-cart-plus"></i>
             <div style="font-size: 10px;" class="badge bg-danger">{{totalItem}}</div>
@@ -25,3 +27,13 @@
     </div>
     
 </header>
+
+
+
+<!-- <div class="nav-right">
+    <div class="nav-search-submit nav-sprite">
+        <span id="nav-search-submit-text" class="nav-search-submit-text nav-sprite nav-progressive-attribute" aria-label="Go">    
+        <input id="nav-search-submit-button" type="submit" class="nav-input nav-progressive-attribute" value="Go" tabindex="0">
+    </span>
+    </div>
+</div> -->

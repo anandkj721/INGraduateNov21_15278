@@ -1,36 +1,15 @@
-<div class="container" ><p>Welcome to Dashboard..!!</p>
+<div class="container">
+  <p>Welcome to Dashboard..!!</p>
 </div>
- 
-   <ul class="sidenav">    
 
-    <!-- <a [routerLink]="['dashboard']">Dashboard</a>
+<ul class="sidenav">
+  <a [routerLink]="['/addProduct']">Products</a>
+  <a [routerLink]="['logout']">Logout</a>
+</ul>
+<section>
+  <router-outlet></router-outlet>
+</section>
 
-    <a [routerLink]="['company']">Company</a> -->
-
-    <a [routerLink]="['/addProduct']">Products</a>
-
-    <!-- <a [routerLink]="['category']">Categories</a>
-
-    <a [routerLink]="['order']">Orders</a> -->
-
-    <a [routerLink]="['logout']">Logout</a>
-
-  </ul>
-
-  <section>
-
-    <!-- <app-addcompany></app-addcompany> -->
-
-      <router-outlet></router-outlet>
-
-  </section>
-  <section>
-    <!-- <app-addcompany></app-addcompany> -->
-     
-  </section>
-  <div class="form-group">
-    <button class="btn btn-primary btn-block">Update</button>
-  </div>
-
-
-  
+<div class="form-group">
+  <button class="btn btn-primary btn-block">Update</button>
+</div>

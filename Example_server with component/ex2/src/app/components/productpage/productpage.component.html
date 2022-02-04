@@ -1,4 +1,5 @@
 
+
 <div class="container " style="margin-bottom: 25px;" >
     <div class="row">
         <ng-container *ngFor="let item of productPage  | filter:searchKey:'productName'">
@@ -16,13 +17,14 @@
                     <option value="5">5</option>
                 </select> -->
                 
-                <input  type="number" [(ngModel)]="pQuantity" id="" min="1" max="5" placeholder="select product item">
+                <input  type="number" [(ngModel)]="pQuantity" id="" min="1" max="5"  placeholder="Please Select Quantity Of Product">
                 <button class="btn btn-primary" (click)=addtocart(item,pQuantity) >Add to cart</button>
             </div>
         </ng-container>
 
     </div>
 </div>
+
 
 <!-- <div>
     <button type="button" class="btn" (click)="inc()"><i class="fa fa-plus"></i></button>

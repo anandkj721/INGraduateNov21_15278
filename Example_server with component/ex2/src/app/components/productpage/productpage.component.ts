@@ -44,8 +44,15 @@ export class ProductpageComponent implements OnInit {
   }
 
   addtocart(item: any,pQuantity:number){
-    this.cartService.addtoCart(item,pQuantity);
+    if (pQuantity >=1){
+      this.cartService.addtoCart(item,pQuantity);
     console.log("addtocart()........... productpage "+item +" quantity :" +pQuantity)
+    }
+    else{
+      alert(item.productName +" "+"Please Select Quantity Of Product !!!")
+    }
+    // this.cartService.addtoCart(item,pQuantity);
+    // console.log("addtocart()........... productpage "+item +" quantity :" +pQuantity)
   }
   
   getProductPage(){

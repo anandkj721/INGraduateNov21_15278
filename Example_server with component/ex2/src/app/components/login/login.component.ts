@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
       if(data){
         alert("Login suceesfull");
         this.loginForm.reset;
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['/productPage']);
       }
       else{
         alert("Invalied creadential");

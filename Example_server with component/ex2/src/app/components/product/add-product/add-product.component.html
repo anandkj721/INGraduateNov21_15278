@@ -1,12 +1,14 @@
-<div class="container">
+
+<div class="container card bg-light">
     <div class="row">
         <div class="col 3">
             <h1></h1>
         </div>
         <div class="col 6">
             <form action="" [formGroup]='addProductForm' (ngSubmit)='onFormSubmit()'>
+                <h1 style="margin-left:10px">Add New Product</h1>
                 <table class="table table-hover table-responsive-md">
-                    <thead class="thead dark">                    
+                    <thead class="thead dark">               
                           <tr>
                             <td>Product Name</td>
                             <td><input type="text" formControlName="productName" ></td>
@@ -54,3 +56,4 @@
     </div>
 
 </div>
+

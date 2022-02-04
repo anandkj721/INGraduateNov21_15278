@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
-import { FormBuilder,FormGroup,Validators,FormGroupDirective,Form, FormControl } from '@angular/forms';
+import { FormBuilder,FormGroup,Validators,FormGroupDirective,Form, FormControl,NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { IUser } from '../IUser';
@@ -55,6 +55,7 @@ submit(){
   console.log("submit() "+JSON.stringify(user))
   this.adduser(user)
   alert("registratoin sucesfull");
+  this.registrationFormRest();
 }
 adduser(user:IUser){
   this.userService.addUser(user).subscribe(
@@ -64,7 +65,9 @@ adduser(user:IUser){
         }
       )
     }
-
+registrationFormRest(){
+  this.registerForm.reset();
+}
 
 }
 

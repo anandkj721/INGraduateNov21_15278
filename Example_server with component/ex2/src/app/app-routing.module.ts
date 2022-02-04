@@ -9,23 +9,22 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { adminlogin } from './components/adminLogin/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'productPage',pathMatch:'full'},
   {path:'productPage',component:ProductpageComponent},
   // {path:'navbar',component:NavComponent},
-   {path:'addProduct',component:AddProductComponent},
+  {path:'addProduct',component:AddProductComponent},
   {path:'cart',component:AddcartComponent},
   {path:'checkout',component:CheckoutComponent},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
+  {path:'home',component:HomeComponent},
 
-  { path: 'adminlogin', component: adminlogin,children:[
+  {path: 'adminLogin', component: adminlogin},
 
-    {path:'admin',component:AdminComponent}
-
-  ]}
- 
+  {path:'admin',component:AdminComponent}
 ];
 
 @NgModule({
